@@ -24,5 +24,6 @@ spec:
               service:
                 name: {{ printf "%s-device" .Release.Name }}
                 port:
-                  number: {{ .Values.device.port | default 80 }}
+                  number: {{ .Values.device.service.port | default 80 }}
+
 {{- end }}
