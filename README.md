@@ -22,3 +22,16 @@
 | `nodeAffinity.enabled` | - | Enables placement rules for specific Kubernetes nodes. |
 | `nodeAffinity.config` | - | The specific affinity rules and expressions. |
 | `extraEnv` | - | List of additional environment variables to inject. |
+
+
+Example:
+helm upgrade --install device-app-release ./device-helm-chart \
+  --set image.repository=my-docker-repo/app \
+  --set image.tag=v1.2.0 \
+  --set replicaCount=2 \
+  --set device.targetPort=9000 \
+  --set ingress.host=app.example.com \
+  --set ingress.device.host=device.example.com \
+  --set ingress.tlsSecretName=prod-tls-cert \
+  --set livenessProbe.enabled=true \
+  --set readinessProbe.enabled=true
