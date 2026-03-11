@@ -8,8 +8,9 @@ spec:
   type: {{ .Values.service.type | default "ClusterIP" }}
   ports:
   - port: {{ .Values.device.service.port | default 80 }}
-    targetPort: {{ .Values.device.targetPort | default 80 }}
+    targetPort: {{ .Values.device.service.targetPort | default 80 }}
     protocol: TCP
   selector:
 
     app.kubernetes.io/name: {{ .Release.Name }}
+
