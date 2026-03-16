@@ -4,9 +4,9 @@ kind: Ingress
 metadata:
   name: {{ printf "%s-device" .Release.Name }}
   namespace: {{ .Release.Namespace }}
-  {{- if .Values.ingress.annotations }}
+  {{- if .Values.ingress.device.annotations }}
   annotations:
-    {{- toYaml .Values.ingress.annotations | nindent 4 }}
+    {{- toYaml .Values.ingress.device.annotations | nindent 4 }}
   {{- end }}
 spec:
   ingressClassName: {{ .Values.ingress.ingressClassName | default "nginx" }}
